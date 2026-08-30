@@ -1,0 +1,213 @@
+/* ============================================================
+   Kırtasiye Fiyat Hesaplama - Stil Dosyası
+   Tema renklerini burada değiştirebilirsiniz (ör. --primary)
+   ============================================================ */
+
+:root {
+  --primary: #2f6fed;
+  --primary-dark: #1d55c9;
+  --bg: #f4f6fb;
+  --card-bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --error: #dc2626;
+  --border: #e2e8f0;
+  --highlight-bg: #eef4ff;
+  --highlight-border: #2f6fed;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 24px 16px;
+}
+
+.container {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.field {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.field-row {
+  display: flex;
+  gap: 16px;
+}
+
+.field-row .field {
+  flex: 1;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+input:focus {
+  border-color: var(--primary);
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+button:hover {
+  background: var(--primary-dark);
+}
+
+.error {
+  margin-top: 12px;
+  color: var(--error);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.results {
+  margin-top: 20px;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.result-row span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.result-row strong {
+  font-size: 1rem;
+}
+
+.result-highlight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding: 16px;
+  background: var(--highlight-bg);
+  border: 1px solid var(--highlight-border);
+  border-radius: 8px;
+}
+
+.result-highlight span {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.result-highlight strong {
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+}
+
+.comparison h2 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+td:last-child {
+  text-align: right;
+  font-weight: 600;
+}
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 8px;
+}
+
+/* Mobil uyum: dar ekranlarda alanları alt alta dizer */
+@media (max-width: 480px) {
+  .field-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .result-highlight strong {
+    font-size: 1.25rem;
+  }
+}

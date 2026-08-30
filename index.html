@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Sayfa Başlığı: Burayı değiştirerek tarayıcı sekmesindeki başlığı güncelleyebilirsiniz -->
+  <title>Kırtasiye Fiyat Hesaplama</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Kırtasiye Fiyat Hesaplama</h1>
+    <p class="subtitle">Alış fiyatı, KDV ve hedef kâr marjına göre müşteri satış fiyatını hesaplayın.</p>
+
+    <section class="card calculator">
+      <div class="field">
+        <label for="buyingPrice">Alış Fiyatı (KDV Hariç)</label>
+        <input type="number" id="buyingPrice" inputmode="decimal" placeholder="Örn: 100" min="0" step="0.01">
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="kdvRate">KDV Oranı (%)</label>
+          <!-- Varsayılan KDV oranını buradaki value değeri ile değiştirebilirsiniz -->
+          <input type="number" id="kdvRate" inputmode="decimal" min="0" step="0.5" value="20">
+        </div>
+
+        <div class="field">
+          <label for="profitMargin">Hedef Kâr Marjı (%)</label>
+          <!-- Varsayılan kâr marjını buradaki value değeri ile değiştirebilirsiniz -->
+          <input type="number" id="profitMargin" inputmode="decimal" min="0" max="99" step="0.5" value="20">
+        </div>
+      </div>
+
+      <button id="calculateBtn" type="button">HESAPLA</button>
+
+      <p id="errorMsg" class="error" hidden></p>
+
+      <div id="results" class="results" hidden>
+        <div class="result-row">
+          <span>Satış Fiyatı (KDV Hariç)</span>
+          <strong id="resPriceBeforeKdv">-</strong>
+        </div>
+        <div class="result-row">
+          <span>Satış KDV</span>
+          <strong id="resSalesKdv">-</strong>
+        </div>
+        <div class="result-row">
+          <span>Brüt Kâr</span>
+          <strong id="resGrossProfit">-</strong>
+        </div>
+        <div class="result-row">
+          <span>Brüt Kâr Marjı</span>
+          <strong id="resGrossMargin">-</strong>
+        </div>
+        <div class="result-highlight">
+          <span>Müşteri Satış Fiyatı</span>
+          <strong id="resFinalPrice">-</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="card comparison">
+      <h2>Farklı Kâr Marjları</h2>
+      <p class="hint">Alış fiyatı ve KDV için farklı kâr marjlarında oluşan müşteri satış fiyatları.</p>
+      <table id="comparisonTable">
+        <thead>
+          <tr>
+            <th>Kâr Marjı</th>
+            <th>Müşteri Satış Fiyatı</th>
+          </tr>
+        </thead>
+        <tbody id="comparisonBody"></tbody>
+      </table>
+    </section>
+
+    <footer class="footer">
+      <p>Tüm hesaplamalar tarayıcınızda yapılır. Veriler sunucuya gönderilmez.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
